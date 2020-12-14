@@ -1,19 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+import AppContextProvider from './context';
+import { ApolloConnectedProvider } from './graphql';
+import AppRouter from './routes';
 
-import reactLogo from './assets/imgs/react.png';
-
-const StyledTitle = styled.h1`
-  text-align: center;
-  margin: 20px;
-`;
-
-const HELLO_WORLD_MESSAGE = '👋 Happy hacking!';
-
-const App: React.FunctionComponent = () => (
-  <main>
-    <img src={reactLogo} alt="React Typescript" />
-    <StyledTitle>{HELLO_WORLD_MESSAGE}</StyledTitle>
-  </main>
+const App: React.FC = () => (
+  <ApolloConnectedProvider>
+    <AppContextProvider>
+      <AppRouter />
+    </AppContextProvider>
+  </ApolloConnectedProvider>
 );
+
 export default App;

@@ -17,22 +17,15 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
-    'plugin:prettier/recommended',
     'plugin:react-hooks/recommended',
     'airbnb',
     'airbnb/hooks',
     'plugin:import/typescript',
     'plugin:jsx-a11y/recommended',
   ],
-  plugins: ['react', '@typescript-eslint', 'prettier', 'jsx-a11y', 'import'],
+  plugins: ['react', '@typescript-eslint', 'jsx-a11y', 'import', 'react-hooks'],
   rules: {
     'linebreak-style': ['error', 'windows'],
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'auto',
-      },
-    ],
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'no-use-before-define': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 0,
@@ -40,6 +33,8 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 'off',
     'import/extensions': 'off',
     '@typescript-eslint/no-var-requires': 0,
+    'react-hooks/exhaustive-deps': 0,
+    'max-len': ['error', { code: 120 }],
   },
   env: {
     browser: true,
