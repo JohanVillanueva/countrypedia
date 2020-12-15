@@ -28,6 +28,7 @@ export const Select = styled.select`
   font-size: inherit;
   cursor: inherit;
   line-height: inherit;
+  background-color: white;
 
   ::-ms-expand {
     display: none;
