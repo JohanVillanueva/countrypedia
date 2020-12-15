@@ -55,6 +55,7 @@ const Modal: React.FC<PropsWithChildren<ModalProps>> = (
   useEffect(() => {
     setIsOpen(open);
     document.body.style.overflow = open ? 'hidden' : 'auto';
+    document.body.style.position = open ? 'fixed' : 'static';
   }, [open]);
 
   return createPortal(
