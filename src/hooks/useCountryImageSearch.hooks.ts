@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Photo, PhotoResult } from '../models';
 
-// For demo only
-const API_AUTH_TOKEN = '7xD9__MF25UNYq5WbbM7t17Y9pPsWPRjy67IVQoLfs0';
+const API_AUTH_TOKEN = process.env.UNSPLASH_AUTH_TOKEN;
 
 const BASE_API_URL = 'https://api.unsplash.com/search';
 const API_SEARCH_QUERY_PARAMS = `?per_page=1&client_id=${API_AUTH_TOKEN}&featured&query=`;
