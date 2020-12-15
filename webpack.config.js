@@ -41,9 +41,6 @@ module.exports = {
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
-      eslint: {
-        files: 'src/**/*.{ts,tsx}',
-      },
       typescript: {
         diagnosticOptions: {
           semantic: true,
