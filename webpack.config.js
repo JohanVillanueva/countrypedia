@@ -18,10 +18,7 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        loader: 'ts-loader',
-        options: {
-          transpileOnly: true,
-        },
+        loader: 'babel-loader',
       },
       {
         test: /\.html$/,
@@ -43,7 +40,18 @@ module.exports = {
     ],
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: 'src/**/*.{ts,tsx}',
+      },
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+        mode: 'write-references',
+      },
+    }),
     new HTMLWebpackPlugin({
       template: './public/index.html',
     }),
