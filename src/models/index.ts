@@ -5,3 +5,4 @@ export * from './language.model';
 export * from './location.model';
 export * from './app-state.model';
 export * from './filter.model';
+export * from './photo.model';

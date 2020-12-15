@@ -1,13 +1,14 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import styled from 'styled-components';
-import { Country, Currency } from '../models';
+import { Country, Currency, Language } from '../models';
 import { flatCardStyle } from '../styling/css';
 import CountryFlag from './CountryFlag';
-import { Language } from '../models/language.model';
+import CountryLabeledInfo from './CountryLabeledInfo';
 
 const StyledCountryCard = styled.div`
   ${flatCardStyle}
-  margin: 10px;
+  margin: 0 10px;
   padding-left: 0;
   padding-right: 0;
   border-radius: 0;
@@ -20,18 +21,11 @@ const StyledCountryCard = styled.div`
     margin-left: 1rem;
 
     &__name {
-      span {
-        color: grey;
-        margin-left: .4em;
-      }
-    }
-
-    &__data {
-      font-size: .9em;
-      line-height: 1.4em;
+      margin-bottom: 0.6rem;
 
       span {
         color: grey;
+        margin-left: 0.4em;
       }
     }
   }
@@ -39,66 +33,37 @@ const StyledCountryCard = styled.div`
 
 interface CountryCardProps {
   country: Country;
+  onCountryClicked: (country: Country) => void;
 }
 
-const CountryCard: React.FC<CountryCardProps> = ({ country }: CountryCardProps) => {
+const CountryCard: React.FC<CountryCardProps> = ({ country, onCountryClicked }: CountryCardProps) => {
   const showCurrencies = (currencies: Array<Currency>) => {
     const currenciesFullNames: Array<string> = currencies?.map((currency) => `${currency.name} (${currency.symbol})`);
 
-    const currenciesFlatText = currenciesFullNames?.join(', ');
-
-    return (
-      <p className="CountryCard__info__data">
-        <span>
-          {
-            currenciesFullNames?.length > 1 ? 'Currencies: ' : 'Currency: '
-          }
-        </span>
-        {currenciesFlatText || 'Not registered'}
-      </p>
-    );
+    return <CountryLabeledInfo label="Currencies" data={currenciesFullNames} inline />;
   };
 
   const showLanguages = (languages: Array<Language>) => {
     const languagesFullNames: Array<string> = languages?.map((language) => language.name);
 
-    const languagesFlatText = languagesFullNames?.join(', ');
-
-    return (
-      <p className="CountryCard__info__data">
-        <span>
-          {
-            languagesFullNames?.length > 1 ? 'Oficial Languages: ' : 'Oficial Language: '
-          }
-        </span>
-        {languagesFlatText || 'Not registered'}
-      </p>
-    );
+    return <CountryLabeledInfo label="Oficial Languages" data={languagesFullNames} inline />;
   };
 
   return (
-    <StyledCountryCard className="CountryCard">
+    <StyledCountryCard className="CountryCard" onClick={() => (onCountryClicked ? onCountryClicked(country) : null)}>
       <CountryFlag source={country.flag.svgFile} name={country.name} />
-      <div className="CountryCard__info">
-        <h4 className="CountryCard__info__name">
-          {country.name}
-          <span>
-            (
-            {country.nativeName}
-            )
-          </span>
-        </h4>
-        <p className="CountryCard__info__data">
-          <span>
-            Region:
-          </span>
-          {' '}
-          {country.subregion?.region?.name || 'Not registered'}
-        </p>
-        {showCurrencies(country.currencies)}
-        {showLanguages(country.officialLanguages)}
+      {country && (
+        <div className="CountryCard__info">
+          <h4 className="CountryCard__info__name">
+            {country.name}
+            <span>{`(${country.nativeName})`}</span>
+          </h4>
 
-      </div>
+          <CountryLabeledInfo label="Region" data={country.subregion?.region?.name} inline />
+          {showCurrencies(country.currencies)}
+          {showLanguages(country.officialLanguages)}
+        </div>
+      )}
     </StyledCountryCard>
   );
 };

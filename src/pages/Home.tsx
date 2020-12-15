@@ -1,7 +1,7 @@
 import { RouteComponentProps } from '@reach/router';
 import React from 'react';
-import styled from 'styled-components';
 import { Slide } from 'react-awesome-reveal';
+import styled from 'styled-components';
 import { Countries, Filters, Header } from '../containers';
 import { Wrapper } from '../styling/components';
 

@@ -22,7 +22,7 @@ const StyledFiltersContainer = styled.section`
   flex-wrap: wrap;
 
   & .Filter {
-    flex: 1 0 230px;
+    flex: 1 0 210px;
     margin: 10px;
   }
 `;

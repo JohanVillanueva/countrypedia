@@ -1,12 +1,15 @@
-import { Router } from '@reach/router';
+import { Redirect, Router } from '@reach/router';
 import React from 'react';
-import { CountryDetailPage, HomePage } from '../pages';
+import { Fade } from 'react-awesome-reveal';
+import { HomePage } from '../pages';
 
 const AppRouter: React.FC = () => (
-  <Router>
-    <HomePage path="/" />
-    <CountryDetailPage path="detail" />
-  </Router>
+  <Fade triggerOnce>
+    <Router>
+      <HomePage path="/" />
+      <Redirect from="*" to="/" />
+    </Router>
+  </Fade>
 );
 
 export default AppRouter;

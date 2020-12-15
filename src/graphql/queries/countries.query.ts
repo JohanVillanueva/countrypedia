@@ -35,6 +35,13 @@ const GET_COUNTRIES_LIST = gql`
           name
         }
       }
+      regionalBlocs {
+        name
+        acronym
+      }
+      alternativeSpellings {
+        name
+      }
     }
   }
 `;

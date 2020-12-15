@@ -1,15 +1,8 @@
-# React 17 + TypeScript + Styled Components + ESLint Starter kit 🛠
+# 🌎  Countrypedia
 
-> A base project for React applications.
+> A React app for list and search countries info
 
-![https://repository-images.githubusercontent.com/318576591/a7182780-3625-11eb-925d-adc07c4e5e7c](https://repository-images.githubusercontent.com/318576591/a7182780-3625-11eb-925d-adc07c4e5e7c)
-## Features ✨
-
-- 💅 [Styled Components](https://styled-components.com/)
-- 📦 [Webpack 5.9](https://webpack.js.org/) (includes [CSS Loader](https://webpack.js.org/loaders/css-loader/))
-- 🧹 [TypeScript 4.1](https://www.typescriptlang.org/)
-- 📃 Linting with [ESLint](https://eslint.org/) + [Airbnb JS Style Guide](https://github.com/airbnb/javascript)
-- 🐩 Pre commit hooks with [Husky](https://github.com/typicode/husky) (Run linter before commit)
+![Countrypedia overview](https://repository-images.githubusercontent.com/321524490/22ac7c80-3e4f-11eb-95f1-21d8b70c53fd)
 
 ## NPM scripts 🔧
 

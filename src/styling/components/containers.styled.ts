@@ -10,5 +10,6 @@ export const Container = styled.article`
 
   & h3 {
     margin-left: 10px;
+    color: #330867;
   }
 `;

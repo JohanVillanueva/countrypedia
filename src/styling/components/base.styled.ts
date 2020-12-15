@@ -11,7 +11,7 @@ export const Input = styled.input`
   color: white;
 
   &::placeholder {
-    color: rgba(255,255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.4);
   }
 `;
 
@@ -40,12 +40,32 @@ export const Select = styled.select`
 
 export const UnorderedList = styled.ul`
   list-style: none;
+  margin-top: 1rem;
 `;
 
 export const ListItem = styled.li`
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: background 0.2s;
+  will-change: background;
 
-  &:last-child {
-    border-bottom: 0;
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+`;
+
+export const Button = styled.button`
+  outline: none;
+  background: rgba(0, 0, 0, 0.1);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.2);
   }
 `;
