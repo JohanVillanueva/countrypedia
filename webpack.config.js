@@ -2,6 +2,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { DefinePlugin } = require('webpack');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -53,6 +54,9 @@ module.exports = {
       template: './public/index.html',
     }),
     new CleanWebpackPlugin(),
+    new DefinePlugin({
+      'process.env.UNSPLASH_AUTH_TOKEN': JSON.stringify(process.env.UNSPLASH_AUTH_TOKEN),
+    }),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
