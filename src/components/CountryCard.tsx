@@ -36,7 +36,7 @@ interface CountryCardProps {
   onCountryClicked: (country: Country) => void;
 }
 
-const CountryCard: React.FC<CountryCardProps> = ({ country, onCountryClicked }: CountryCardProps) => {
+const CountryCardComponent: React.FC<CountryCardProps> = ({ country, onCountryClicked }: CountryCardProps) => {
   const showCurrencies = (currencies: Array<Currency>) => {
     const currenciesFullNames: Array<string> = currencies?.map((currency) => `${currency.name} (${currency.symbol})`);
 
@@ -67,5 +67,7 @@ const CountryCard: React.FC<CountryCardProps> = ({ country, onCountryClicked }: 
     </StyledCountryCard>
   );
 };
+
+const CountryCard = React.memo(CountryCardComponent);
 
 export default CountryCard;

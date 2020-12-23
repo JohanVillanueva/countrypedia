@@ -8,12 +8,12 @@ import CountryCard from './CountryCard';
 
 interface CountriesListProps {
   countries: Array<Country>;
-  onCountrySelect: (country: Country) => void
+  onCountrySelect: (country: Country) => void;
 }
 
 const COUNTRIES_BY_PAGE = 10;
 
-const CountriesList: React.FC<CountriesListProps> = ({ countries, onCountrySelect }: CountriesListProps) => {
+const CountriesListComponent: React.FC<CountriesListProps> = ({ countries, onCountrySelect }: CountriesListProps) => {
   const [countriesToShow, setCountriesToShow] = useState([]);
   const isPageAtBottom = usePageBottom();
 
@@ -39,10 +39,11 @@ const CountriesList: React.FC<CountriesListProps> = ({ countries, onCountrySelec
             <CountryCard country={country} onCountryClicked={onCountrySelect} />
           </ListItem>
         ))}
-
       </Fade>
     </UnorderedList>
   );
 };
+
+const CountriesList = React.memo(CountriesListComponent);
 
 export default CountriesList;

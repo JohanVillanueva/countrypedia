@@ -11,7 +11,7 @@ const StyledCountries = styled(Container)`
   margin-top: 2.5rem;
 `;
 
-const Countries: React.FC = () => {
+const CountriesComponent: React.FC = () => {
   const {
     filteredCountries, countries, loading, error,
   } = useCountries(true);
@@ -56,5 +56,7 @@ const Countries: React.FC = () => {
     </StyledCountries>
   );
 };
+
+const Countries = React.memo(CountriesComponent);
 
 export default Countries;
